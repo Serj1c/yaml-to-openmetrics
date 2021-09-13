@@ -12,7 +12,6 @@ import (
 	"github.com/Serj1c/yaml-to-openmetrics/pkg/handlers"
 	"github.com/Serj1c/yaml-to-openmetrics/pkg/util"
 	"github.com/gorilla/mux"
-	//"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
 func main() {
@@ -20,10 +19,10 @@ func main() {
 	if err != nil {
 		log.Fatal("Unable to read configuration: ", err)
 	}
-
+	/* Hard coded but can be obtained by the variety of techniques */
 	path := "currencies.yaml"
 
-	metrics := handlers.NewMetrics(path)
+	metrics := handlers.NewMetric(path)
 
 	sm := mux.NewRouter()
 

@@ -8,18 +8,18 @@ import (
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
-// Metrics ...
-type Metrics struct {
+// Metric represents one of possible app's metrics
+type Metric struct {
 	Path string
 }
 
-// NewMetrics creates an exemplar of metrics
-func NewMetrics(Path string) *Metrics {
-	return &Metrics{Path}
+// NewMetric creates an exemplar of a metric
+func NewMetric(Path string) *Metric {
+	return &Metric{Path}
 }
 
 // Prepare "prepares" metrics which are to be sent
-func (m *Metrics) Prepare(rw http.ResponseWriter, r *http.Request) {
+func (m *Metric) Prepare(rw http.ResponseWriter, r *http.Request) {
 	yml, err := parsers.ParseYaml(m.Path)
 	if err != nil {
 		http.Error(rw, "unable to parse yaml file", http.StatusBadRequest)
