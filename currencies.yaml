@@ -1,0 +1,5 @@
+currencies:
+    - name: usd
+      value: 70
+    - name: eur
+      value: 85
